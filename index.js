@@ -112,6 +112,7 @@ sanz.on('chat-update', async (mek) => {
 		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 		const command = body.slice(0).trim().split(/ +/).shift().toLowerCase()
 		hit_today.push(command)
+    const arg = budy.slice(command.length + 1, budy.length)
 		const args = body.trim().split(/ +/).slice(1)
 		const isCmd = body.startsWith(prefix)
 		const q = args.join(' ')
@@ -1923,6 +1924,34 @@ case prefix+'bc':
 					      sanz.groupMakeAdmin(from, [sender])
 					      reply('Sukses')
 					      break
+            case prefix+ 'spam':
+                if (!isMe) return reply('This command only for saia')
+                if (!arg) return reply(`Penggunaan ${prefix}spam teks|jumlahspam`)
+                argz = arg.split("|")
+                if (!argz) return reply(`Penggunaan ${prefix}spam teks|jumlah`)
+                if (isNaN(argz[1])) return reply(`harus berupa angka`)
+                for (let i = 0; i < argz[1]; i++){
+                sanz.sendMessage(from, argz[0], MessageType.text)
+                }
+	        break
+            case prefix+ 'delete':
+                if (!isMe) return reply('This command only for saia')
+                reply('*succes delete this chat*')
+                console.log('succes delete chat = ' + from)
+                sanz.modifyChat(from, ChatModification.delete)
+                break
+            case prefix+ 'mute':
+                if (!isMe) return reply('This command only for mega')
+                sanz.modifyChat(from, ChatModification.mute, 24*60*60*1000)
+                reply('*succes mute this chat*')
+                console.log('succes mute chat = ' + from)
+                break
+            case prefix+ 'unmute':
+                if (!isMe) return reply('This command only for mega')
+                sanz.modifyChat(from, ChatModification.unmute)
+                reply('*succes unmute this chat*')
+                console.log('succes unmute chat = ' + from)
+                break
 default:
 
 	}
