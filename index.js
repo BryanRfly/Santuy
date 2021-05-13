@@ -14,6 +14,7 @@ const
 		ReconnectMode,
 		ProxyAgent,
 		GroupSettingChange,
+		ChatModification,
 		waChatKey,
 		mentionedJid,
 		processTime,
