@@ -102,8 +102,8 @@ sanz.on('chat-update', async (mek) => {
 		if (!mek.message) return
 		if (mek.key && mek.key.remoteJid == 'status@broadcast') return
 		global.blocked
-        	mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-        	const content = JSON.stringify(mek.message)
+		mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
+    const content = JSON.stringify(mek.message)
 		const from = mek.key.remoteJid
 		const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 		const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
@@ -452,43 +452,43 @@ switch (command) {
 └ *${prefix}wallpaperanime*
 
 ❏ *NSFW*
-├ *${prefix}nsfwavatar* [ LOCKED ]
-├ *${prefix}nekopoi* [ LOCKED ]
-├ *${prefix}pussy* [ LOCKED ]
-├ *${prefix}pussyimage* [ LOCKED ]
-├ *${prefix}oppai* [ LOCKED ]
-├ *${prefix}feetg* [ LOCKED ]
-├ *${prefix}bj* [ LOCKED ]
-├ *${prefix}ero* [ LOCKED ]
-├ *${prefix}erokemo* [ LOCKED ]
-├ *${prefix}eroyuri* [ LOCKED ]
-├ *${prefix}tickle* [ LOCKED ]
-├ *${prefix}feed* [ LOCKED ]
-├ *${prefix}kuni* [ LOCKED ]
-├ *${prefix}femdom* [ LOCKED ]
-├ *${prefix}futunari* [ LOCKED ]
-├ *${prefix}les* [ LOCKED ]
-├ *${prefix}trap* [ LOCKED ]
-├ *${prefix}pat* [ LOCKED ]
-├ *${prefix}boobs* [ LOCKED ]
-├ *${prefix}blowjob* [ LOCKED ]
-├ *${prefix}hentai* [ LOCKED ]
-├ *${prefix}hololewed* [ LOCKED ]
-├ *${prefix}lewd* [ LOCKED ]
-├ *${prefix}lewdk* [ LOCKED ]
-├ *${prefix}lewdkemo* [ LOCKED ]
-├ *${prefix}goose* [ LOCKED ]
-├ *${prefix}solog* [ LOCKED ]
-├ *${prefix}yuri* [ LOCKED ]
-├ *${prefix}anal* [ LOCKED ]
-├ *${prefix}pwankg* [ LOCKED ]
-├ *${prefix}eron* [ LOCKED ]
-├ *${prefix}kiss* [ LOCKED ]
-├ *${prefix}keta* [ LOCKED ]
-├ *${prefix}cum* [ LOCKED ]
-├ *${prefix}cumimage* [ LOCKED ]
-├ *${prefix}oppai* [ LOCKED ]
-└ *${prefix}holoero* [ LOCKED ]
+├ *${prefix}nsfwavatar* [ UNLOCKED ]
+├ *${prefix}nekopoi* [ UNLOCKED ]
+├ *${prefix}pussy* [ UNLOCKED ]
+├ *${prefix}pussyimage* [ UNLOCKED ]
+├ *${prefix}oppai* [ UNLOCKED ]
+├ *${prefix}feetg* [ UNLOCKED ]
+├ *${prefix}bj* [ UNLOCKED ]
+├ *${prefix}ero* [ UNLOCKED ]
+├ *${prefix}erokemo* [ UNLOCKED ]
+├ *${prefix}eroyuri* [ UNLOCKED ]
+├ *${prefix}tickle* [ UNLOCKED ]
+├ *${prefix}feed* [ UNLOCKED ]
+├ *${prefix}kuni* [ UNLOCKED ]
+├ *${prefix}femdom* [ UNLOCKED ]
+├ *${prefix}futunari* [ UNLOCKED ]
+├ *${prefix}les* [ UNLOCKED ]
+├ *${prefix}trap* [ UNLOCKED ]
+├ *${prefix}pat* [ UNLOCKED ]
+├ *${prefix}boobs* [ UNLOCKED ]
+├ *${prefix}blowjob* [ UNLOCKED ]
+├ *${prefix}hentai* [ UNLOCKED ]
+├ *${prefix}hololewed* [ UNLOCKED ]
+├ *${prefix}lewd* [ UNLOCKED ]
+├ *${prefix}lewdk* [ UNLOCKED ]
+├ *${prefix}lewdkemo* [ UNLOCKED ]
+├ *${prefix}goose* [ UNLOCKED ]
+├ *${prefix}solog* [ UNLOCKED ]
+├ *${prefix}yuri* [ UNLOCKED ]
+├ *${prefix}anal* [ UNLOCKED ]
+├ *${prefix}pwankg* [ UNLOCKED ]
+├ *${prefix}eron* [ UNLOCKED ]
+├ *${prefix}kiss* [ UNLOCKED ]
+├ *${prefix}keta* [ UNLOCKED ]
+├ *${prefix}cum* [ UNLOCKED ]
+├ *${prefix}cumimage* [ UNLOCKED ]
+├ *${prefix}oppai* [ UNLOCKED ]
+└ *${prefix}holoero* [ UNLOCKED ]
 
 ❏ *MAKER*
 ├ *${prefix}sticker* [ image > sticker]
@@ -560,8 +560,8 @@ switch (command) {
 └  *${prefix}speed*
 
 ❏ *Note*
-├ 
-└ 
+├ Owner?
+└ ${(sender.split('@')[6289656439589])}
 `
         	faketokoforwaded(menu)
            	break
@@ -582,7 +582,7 @@ switch (command) {
             fakestatus(`*STATUS*\n${offline ? '> OFFLINE' : '> ONLINE'}\n${banChats ? '> SELF-MODE' : '> PUBLIC-MODE'}`)
             break
 	case prefix+ 'self':
-          	if (!mek.key.fromMe) return fakestatus('SELF-BOT')
+          	if (!mek.key.fromMe) return fakestatus('This command only for me')
           	if (banChats === true) return
           	uptime = process.uptime()
          	 // var taged = ben.message.extendedTextMessage.contextInfo.mentionedJid[0]
@@ -590,7 +590,7 @@ switch (command) {
           	fakestatus(`「 *SELF-MODE* 」`)
           	break
     case prefix+ 'public':
-          	if (!mek.key.fromMe) return fakestatus('SELF-BOT')
+          	if (!mek.key.fromMe) return fakestatus('This command only for me')
           	if (banChats === false) return
           	// var taged = ben.message.extendedTextMessage.contextInfo.mentionedJid[0]
           	banChats = false
@@ -647,12 +647,12 @@ if (!isMe) return reply('Only Owner...')
 			})
 		    break 
 //INFORMATION
-    case prefix+'covidindo':
+    case prefix+ 'covidindo':
                 ci = await covidindo()
                 var { kasus, kematian, sembuh } = ci[0]
                 reply(`Kasus : ${kasus}\n\nKematian : ${kematian}\n\nSembuh : ${sembuh}`)
                 break
-    case prefix+'covidworld':
+    case prefix+ 'covidworld':
                  cw= await covidworld()
                 var { kasus, kematian, sembuh } = cw[0]
                 reply(`Kasus : ${kasus}\n\nKematian : ${kematian}\n\nSembuh : ${sembuh}`)
@@ -679,17 +679,17 @@ if (!isMe) return reply('Only Owner...')
             })
 			break
 //WIBU
-case prefix+'avatar':
+case prefix+ 'avatar':
 			anu = await axios.get('https://nekos.life/api/v2/img/avatar')
 				avatars = await getBuffer(anu.data.url)
 				sanz.sendMessage(from, avatars, image, {quoted: mek})
 			break
-		case prefix+'loli':
+		case prefix+ 'loli':
 		  anu = await axios.get('https://nekos.life/api/v2/img/neko')
 				loliz = await getBuffer(anu.data.url)
 				sanz.sendMessage(from, loliz, image, {quoted: mek})
 			break
-		case prefix+'waifu':
+		case prefix+ 'waifu':
 			waifud = await axios.get('https://nekos.life/api/v2/img/kemonomimi')
 			nyed = await getBuffer(waifud.data.url)
 			sanz.sendMessage(from, nyed, image, { caption: 'Gatau caption nya apa', quoted: mek })
@@ -697,7 +697,7 @@ case prefix+'avatar':
 				return('Mengulang lord ada yg mengerror...')
 			})
 			break
-	case prefix+'husbu':
+	case prefix+ 'husbu':
 			husbud = await fetchJson(`https://api.fdci.se/rep.php?gambar=husbu`)
 			sasu = JSON.parse(JSON.stringify(husbud));
 			ke =  sasu[Math.floor(Math.random() * sasu.length)];
@@ -718,7 +718,7 @@ case prefix+ 'image':
             sanz.sendMessage(from,{url:images},image,{quoted:mek})
             });
             break
-case prefix+'pinterest':
+case prefix+ 'pinterest':
 			goblog = args.join(" ")
 			anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=${goblog}`)
 			sasu = JSON.parse(JSON.stringify(anu));
@@ -748,7 +748,7 @@ case prefix+'pinterest':
             )
             });
             break
-	case prefix+'wallpaperanime':
+	case prefix+ 'wallpaperanime':
 			wanime = await axios.get('https://nekos.life/api/v2/img/wallpaper')
 			bufwanime = await getBuffer(wanime.data.url)
 			sanz.sendMessage(from, bufwanime, image, { quoted: mek })
@@ -757,14 +757,16 @@ case prefix+'pinterest':
 			})
 			break
 //HARAM FEATURE
-case prefix+'nsfwavatar':
-			/*anu = await axios.get('https://nekos.life/api/v2/img/nsfw_avatar')
+case prefix+ 'nsfwavatar':
+			anu = await axios.get('https://nekos.life/api/v2/img/nsfw_avatar')
 				nsavatar = await getBuffer(anu.data.url)
-				sanz.sendMessage(from, nsavatar, image, {quoted: mek})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+				sanz.sendMessage(from, nsavatar, image, {quoted: mek})
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})	
 			break
-case prefix+'nekopoi':
-      /*ranp = getRandom('.gif')
+case prefix+ 'nekopoi':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/nsfw_neko_gif')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -773,11 +775,10 @@ case prefix+'nekopoi':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'pussy':
-      /*ranp = getRandom('.gif')
+case prefix+ 'pussy':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/pussy')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -786,23 +787,26 @@ case prefix+'pussy':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'pussyimage':
-  /*pusiimg = await axios.get('https://nekos.life/api/v2/img/pussy_jpg')
+case prefix+ 'pussyimage':
+  pusiimg = await axios.get('https://nekos.life/api/v2/img/pussy_jpg')
 			bufpusy = await getBuffer(pusiimg.data.url)
-				sanz.sendMessage(from, bufpusy, MessageType.sticker, {quoted: mek})h*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+				sanz.sendMessage(from, bufpusy, MessageType.sticker, {quoted: mek})
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'oppai':
-			/*opai = await axios.get('https://nekos.life/api/v2/img/tits')
+case prefix+ 'oppai':
+			opai = await axios.get('https://nekos.life/api/v2/img/tits')
 			opaiz = await getBuffer(opai.data.url)
 			sanz.sendMessage(from, opaiz, image, { quoted: mek })
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')*/
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'feetg':
-      /*ranp = getRandom('.gif')
+case prefix+ 'feetg':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/feetg')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -811,11 +815,10 @@ case prefix+'feetg':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'bj':
-      /*ranp = getRandom('.gif')
+case prefix+ 'bj':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/bj')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -824,29 +827,34 @@ case prefix+'bj':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'ero':
-			/*eroz = await axios.get('https://nekos.life/api/v2/img/ero')
+case prefix+ 'ero':
+			eroz = await axios.get('https://nekos.life/api/v2/img/ero')
 			bufero = await getBuffer(eroz.data.url)
-			sanz.sendMessage(from, bufero, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, bufero, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'erokemo':
-			/*erokz = await axios.get('https://nekos.life/api/v2/img/erokemo')
+case prefix+ 'erokemo':
+			erokz = await axios.get('https://nekos.life/api/v2/img/erokemo')
 			erokzs = await getBuffer(erokz.data.url)
-			sanz.sendMessage(from, erokzs, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, erokzs, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'eroyuri':
-			/*eroyuriz = await axios.get('https://nekos.life/api/v2/img/eroyuri')
+case prefix+ 'eroyuri':
+			eroyuriz = await axios.get('https://nekos.life/api/v2/img/eroyuri')
 			buferoyu = await getBuffer(opai.data.url)
-			sanz.sendMessage(from, buferoyu, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, buferoyu, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'tickle':
-      /*ranp = getRandom('.gif')
+case prefix+ 'tickle':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/tickle')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -855,11 +863,10 @@ case prefix+'tickle':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'feed':
-      /*ranp = getRandom('.gif')
+case prefix+ 'feed':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/feed')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -868,11 +875,10 @@ case prefix+'feed':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'kuni':
-      /*ranp = getRandom('.gif')
+case prefix+ 'kuni':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/kuni')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -881,24 +887,23 @@ case prefix+'kuni':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'femdom':
-      /*			anu = await axios.get('https://nekos.life/api/v2/img/femdom')
+case prefix+ 'femdom':
+      anu = await axios.get('https://nekos.life/api/v2/img/femdom')
 			bupemdom = await getBuffer(anu.data.url)
 				sanz.sendMessage(from, bupemdom, image, {quoted: mek})
-			*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'futanari':
-			/*futan = await axios.get('https://nekos.life/api/v2/img/futanari')
+case prefix+ 'futanari':
+			futan = await axios.get('https://nekos.life/api/v2/img/futanari')
 			futanz = await getBuffer(futan.data.url)
-			sanz.sendMessage(from, futanz, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, futanz, image, { quoted: mek })
 			break
-case prefix+'les':
-      /*ranp = getRandom('.gif')
+case prefix+ 'les':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/les')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -907,17 +912,18 @@ case prefix+'les':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'trap':
-			/*trapx = await axios.get('https://nekos.life/api/v2/img/tits')
+case prefix+ 'trap':
+			trapx = await axios.get('https://nekos.life/api/v2/img/tits')
 			traps = await getBuffer(trapx.data.url)
-			sanz.sendMessage(from, traps, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, traps, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'pat':
-      /*ranp = getRandom('.gif')
+case prefix+ 'pat':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/pat')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -926,11 +932,10 @@ case prefix+'pat':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'boobs':
-      /*ranp = getRandom('.gif')
+case prefix+ 'boobs':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/boobs')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -939,56 +944,56 @@ case prefix+'boobs':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'blowjob':
-			/*blowz = await axios.get('https://nekos.life/api/v2/img/blowjob')
+case prefix+ 'blowjob':
+			blowz = await axios.get('https://nekos.life/api/v2/img/blowjob')
 			bufblowz = await getBuffer(blowz.data.url)
 			sanz.sendMessage(from, bufblowz, image, { quoted: mek })
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')*/
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-	case prefix+'hentai':
-			/*hentaiz = await axios.get('https://nekos.life/api/v2/img/hentai')
-			bufhtz = await getBuffer(hentaiz.url)
+	case prefix+ 'hentai':
+			hentaiz = await axios.get('https://nekos.life/api/v2/img/hentai')
+			bufhtz = await getBuffer(hentaiz.data.url)
 			sanz.sendMessage(from, bufhtz, image, { quoted: mek })
-			.catch(err =>{
-			  return('Tobat puasa goblokk..')
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-	case prefix+'hololewed':
-			/*hololew = await axios.get('https://nekos.life/api/v2/img/hololewd')
-			hololewx = await getBuffer(hololew.url)
+	case prefix+ 'hololewed':
+			hololew = await axios.get('https://nekos.life/api/v2/img/hololewd')
+			hololewx = await getBuffer(hololew.data.url)
 			sanz.sendMessage(from, hololewx, image, { quoted: mek })
 			.catch(err =>{
 			  return('Tobat puasa goblokk..')
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'lewd':
-			/*lewdd = await axios.get('https://nekos.life/api/v2/img/lewd')
+case prefix+ 'lewd':
+			lewdd = await axios.get('https://nekos.life/api/v2/img/lewd')
 			buflewd = await getBuffer(lewdd.data.url)
-			sanz.sendMessage(from, buflewd, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, buflewd, image, { quoted: mek })
+			
 			break
-	case prefix+'lewdk':
-			/*lewdkk = await axios.get('https://nekos.life/api/v2/img/lewdk')
-			lewdkz = await getBuffer(lewdkk.url)
+	case prefix+ 'lewdk':
+			lewdkk = await axios.get('https://nekos.life/api/v2/img/lewdk')
+			lewdkz = await getBuffer(lewdkz.data.url)
 			sanz.sendMessage(from, lewdkz, image, { quoted: mek })
 			.catch(err =>{
 			  return('Tobat puasa goblokk..')
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'lewdkemo':
-			/*lewdkm = await axios.get('https://nekos.life/api/v2/img/lewdkemo')
+case prefix+ 'lewdkemo':
+			lewdkm = await axios.get('https://nekos.life/api/v2/img/lewdkemo')
 			buflewd = await getBuffer(lewdkm.data.url)
-			sanz.sendMessage(from, buflewd, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, buflewd, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'goose':
-      /*ranp = getRandom('.gif')
+case prefix+ 'goose':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/goose')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -997,11 +1002,10 @@ case prefix+'goose':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'solog':
-      /*ranp = getRandom('.gif')
+case prefix+ 'solog':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/solog')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -1010,17 +1014,18 @@ case prefix+'solog':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'yuri':
-			/*yuriz = await axios.get('https://nekos.life/api/v2/img/tits')
+case prefix+ 'yuri':
+			yuriz = await axios.get('https://nekos.life/api/v2/img/tits')
 			bupyuri = await getBuffer(yuriz.data.url)
 			sanz.sendMessage(from, bupyuri, image, { quoted: mek })
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')*/
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-	case prefix+'anal':
-      /*ranp = getRandom('.gif')
+	case prefix+ 'anal':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/anal')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -1029,11 +1034,10 @@ case prefix+'yuri':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break		
-case prefix+'pwankg':
-      /*ranp = getRandom('.gif')
+case prefix+ 'pwankg':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/pwankg')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -1042,17 +1046,18 @@ case prefix+'pwankg':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'eron':
-			/*eronz = await axios.get('https://nekos.life/api/v2/img/eron')
+case prefix+ 'eron':
+			eronz = await axios.get('https://nekos.life/api/v2/img/eron')
 			buferon = await getBuffer(eronz.data.url)
-			sanz.sendMessage(from, buferon, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, buferon, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'kiss':
-      /*ranp = getRandom('.gif')
+case prefix+ 'kiss':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/kiss')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -1061,17 +1066,18 @@ case prefix+'kiss':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
 			break
-case prefix+'keta':
-			/*ketaz = await axios.get('https://nekos.life/api/v2/img/keta')
+case prefix+ 'keta':
+			ketaz = await axios.get('https://nekos.life/api/v2/img/keta')
 			bufketa = await getBuffer(ketaz.data.url)
-			sanz.sendMessage(from, bufketa, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, bufketa, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'cum':
-      /*ranp = getRandom('.gif')
+case prefix+ 'cum':
+      ranp = getRandom('.gif')
       rano = getRandom('.webp')
 			anu = await axios.get('https://nekos.life/api/v2/img/cum')
 			exec(`wget ${anu.data.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -1080,26 +1086,34 @@ case prefix+'cum':
 				buffer = fs.readFileSync(rano)
 				sanz.sendMessage(from, buffer, MessageType.sticker, {quoted: mek})
 				fs.unlinkSync(rano)
-			})*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			})
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'cumimage':
-			/*cumjpg = await axios.get('https://nekos.life/api/v2/img/cum_jpg')
-			bupjpge = await getBuffer(cumjpge.data.url)
-			sanz.sendMessage(from, bupjpge, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+case prefix+ 'cumimage':
+			cumjpg = await axios.get('https://nekos.life/api/v2/img/cum_jpg')
+			bupjpg = await getBuffer(cumjpg.data.url)
+			sanz.sendMessage(from, bupjpg, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'oppai':
-			/*opai = await axios.get('https://nekos.life/api/v2/img/tits')
+case prefix+ 'oppai':
+			opai = await axios.get('https://nekos.life/api/v2/img/tits')
 			opaiz = await getBuffer(opai.data.url)
-			sanz.sendMessage(from, opaiz, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, opaiz, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
-case prefix+'holoero':
-		/*holox = await axios.get('https://nekos.life/api/v2/img/holoero')
+case prefix+ 'holoero':
+		holox = await axios.get('https://nekos.life/api/v2/img/holoero')
 			bufholox = await getBuffer(holox.data.url)
-			sanz.sendMessage(from, bufholox, image, { quoted: mek })*/
-			reply('lagi sange bang? nyari apaan loh?, puasa bang xixixi')
+			sanz.sendMessage(from, bufholox, image, { quoted: mek })
+			.catch(err => {
+			return('Ad yg mengerror ulang coba..')
+			})
 			break
 //MAKER
     case prefix+ 'sticker': 
@@ -1122,7 +1136,7 @@ case prefix+'holoero':
                 })
                 .on('end', function () {
                 console.log('Finish')
-                sanz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+                sanz.sendMessage(from, fs.readFileSync(ran), MessageType.sticker, {quoted: mek})
                  fs.unlinkSync(media)
                 fs.unlinkSync(ran)
                 })
@@ -1147,7 +1161,7 @@ case prefix+'holoero':
             })
             .on('end', function () {
             console.log('Finish')
-            sanz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+            sanz.sendMessage(from, fs.readFileSync(ran), MessageType.sticker, {quoted: mek})
             fs.unlinkSync(media)
             fs.unlinkSync(ran)
                 })
@@ -1267,10 +1281,10 @@ case prefix+ 'emoji':
             reply('emojinya satu aja bang xixixi'); 
             })
     		break
-case prefix+'attp':
+case prefix+ 'attp':
 						if (args.length < 1) return reply(`Text Nya Mana Ajg?\n> *Contoh* : *${prefix}attp* _Aku Ganz_`)
 						attp2 = await getJson(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
-						sanz.sendMessage(from, attp2, sticker, {quoted: mek})
+						sanz.sendMessage(from, attp2, MessageType.sticker, {quoted: mek})
 						break
 //MAKERIMAGE
 //COMINGSOON
@@ -1527,7 +1541,7 @@ break//DONE
                 quoted: mek
             }
             ini_buffer = fs.readFileSync(file)
-            sanz.sendMessage(from, ini_buffer, sticker, options)
+            sanz.sendMessage(from, ini_buffer, MessageType.sticker, options)
             fs.unlinkSync(file)
             } else {
             reply(`*Reply sticker yang sudah dikirim*`)
@@ -1597,7 +1611,7 @@ break//DONE
                 quoted: mek
             }
             ini_buffer = fs.readFileSync(file)
-            sanz.sendMessage(from, ini_buffer, sticker, options)
+            sanz.sendMessage(from, ini_buffer, MessageType.sticker, options)
             fs.unlinkSync(file)
             } else if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
             encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -1792,7 +1806,7 @@ break//DONE
             sendMediaURL(from,ten,teks) 
             })      
             break    
-    case prefix+'twitter':
+    case prefix+ 'twitter':
             if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply(mess.Iv)
             if (!q) return fakegroup('Linknya?')
             ten = args[0]
@@ -1891,7 +1905,7 @@ case prefix+ 'brainly':
 
 //Maker
 
-case prefix+'bc':
+case prefix+ 'bc':
 					if (!isMe) return reply('Only Owner...')
 					if (args.length < 1) return reply('.......')
 					anu = await sanz.chats.all()
@@ -1910,7 +1924,7 @@ case prefix+'bc':
 					}
 					break
 //BUG GC
-					case prefix+'peson':
+					case prefix+ 'peson':
 					  sanz.toggleDisappearingMessages(from, WA_DEFAULT_EPHEMERAL)
 					  break
 					  case prefix+ 'pesoff':
